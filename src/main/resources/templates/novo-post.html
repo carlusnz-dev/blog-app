@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,18 +41,18 @@
 
 <div class="container mt-5" id="form-container">
   <h1>Criar Nova Postagem</h1>
-  <form>
+  <form th:object="${post}">
     <div class="mb-3">
       <label for="titulo" class="form-label">Título</label>
-      <input type="text" class="form-control" id="titulo" name="titulo" required>
+      <input type="text" class="form-control" id="titulo" name="titulo" required th:field="*{titulo}">
     </div>
     <div class="mb-3">
       <label for="conteudo" class="form-label">Conteúdo</label>
-      <textarea class="form-control" id="conteudo" name="conteudo" rows="5" required></textarea>
+      <textarea class="form-control" id="conteudo" name="conteudo" rows="5" required th:field="*{conteudo}"></textarea>
     </div>
     <div class="mb-3">
       <label for="imagem" class="form-label">Imagem</label>
-      <input type="file" name="image" id="imagem" accept="image/*" class="form-control-file">
+      <input type="file" name="image" id="imagem" accept="image/*" class="form-control-file" th:field="*{imageUrl}">
 
     </div>
     <button type="submit" class="btn btn-primary">Publicar</button>
