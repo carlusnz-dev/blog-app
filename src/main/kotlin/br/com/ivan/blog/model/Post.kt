@@ -1,10 +1,10 @@
 package br.com.ivan.blog.model
 
-import jakarta.persistence.Entity
+import jakarta.persistence.GenerationType
+import org.springframework.data.annotation.Id
 import java.time.LocalDateTime
 
-@Entity
-class Post (
+data class Post (
         val id: Long? = null,
         val titulo: String = "",
         val conteudo: String = "",

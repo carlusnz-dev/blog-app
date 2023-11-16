@@ -15,7 +15,7 @@ class NovoPostController {
 
         model.addAttribute("post", post)
 
-        return "meus-posts"
+        return "novo-post"
     }
 
 }
