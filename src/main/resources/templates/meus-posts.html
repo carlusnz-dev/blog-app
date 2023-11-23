@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,17 +23,17 @@
   <div class="container-fluid d-flex justify-content-between align-items-center">
 
     <div>
-      <a href="#" class="navbar-brand">Blog News</a>
+      <a href="/home" class="navbar-brand">Blog News</a>
     </div>
 
     <div id="nav-nome-user">
-      <p>Bem vindo</p>
+      <p th:text=" ' Bem vindo ' + ${#ctx.session.usuarioLogado.nickname} ">Bem vindo</p>
     </div>
 
     <div  class="d-flex link-navbar">
-      <a href="#" class="btn btn-primary me-3">Criar Post</a>
-      <a href="#" class="btn btn-primary me-3">Meus Posts</a>
-      <a href="#" class="btn btn-primary me-3">Logout</a>
+      <a href="/novo/post" class="btn btn-primary me-3">Criar Post</a>
+      <a href="/meus/posts" class="btn btn-primary me-3">Meus Posts</a>
+      <a href="/logout" class="btn btn-primary me-3">Logout</a>
     </div>
   </div>
 </nav>
@@ -43,56 +43,15 @@
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <div class="col">
-      <div class="card">
-        <img src="https://s2-extra.glbimg.com/suWSn7Pi02b1tSrVM63VOf7Kwfo=/0x0:828x522/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f551ea7087a47f39ead75f64041559a/internal_photos/bs/2023/m/u/ZwRhz5SQWGRVJygJU9pA/vasco-2023-sao-januario-vazio-1.jpeg" class="card-img-top" alt="Imagem 1">
+      <div class="card" th:each="post : ${posts}">
+        <img th:src="${post.imagemUrl}" class="card-img-top" alt="Imagem 1">
         <div class="card-body">
-          <p class="card-text">Legenda da Imagem 1</p>
+          <p class="card-text" th:text="${post.titulo}"></p>
           <a href="/post/comentarios" class="btn btn-primary">Ver Comentários</a>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="https://s2-extra.glbimg.com/suWSn7Pi02b1tSrVM63VOf7Kwfo=/0x0:828x522/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f551ea7087a47f39ead75f64041559a/internal_photos/bs/2023/m/u/ZwRhz5SQWGRVJygJU9pA/vasco-2023-sao-januario-vazio-1.jpeg" class="card-img-top" alt="Imagem 1">
-        <div class="card-body">
-          <p class="card-text">Legenda da Imagem 2</p>
-          <a href="/post/comentarios" class="btn btn-primary">Ver Comentários</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="https://s2-extra.glbimg.com/suWSn7Pi02b1tSrVM63VOf7Kwfo=/0x0:828x522/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f551ea7087a47f39ead75f64041559a/internal_photos/bs/2023/m/u/ZwRhz5SQWGRVJygJU9pA/vasco-2023-sao-januario-vazio-1.jpeg" class="card-img-top" alt="Imagem 1">
-        <div class="card-body">
-          <p class="card-text">Legenda da Imagem 3</p>
-          <a href="/post/comentarios" class="btn btn-primary">Ver Comentários</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="https://s2-extra.glbimg.com/suWSn7Pi02b1tSrVM63VOf7Kwfo=/0x0:828x522/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f551ea7087a47f39ead75f64041559a/internal_photos/bs/2023/m/u/ZwRhz5SQWGRVJygJU9pA/vasco-2023-sao-januario-vazio-1.jpeg" class="card-img-top" alt="Imagem 1">
-        <div class="card-body">
-          <p class="card-text">Legenda da Imagem 4</p>
-          <a href="/post/comentarios" class="btn btn-primary">Ver Comentários</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img src="https://s2-extra.glbimg.com/suWSn7Pi02b1tSrVM63VOf7Kwfo=/0x0:828x522/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f551ea7087a47f39ead75f64041559a/internal_photos/bs/2023/m/u/ZwRhz5SQWGRVJygJU9pA/vasco-2023-sao-januario-vazio-1.jpeg" class="card-img-top" alt="Imagem 1">
-        <div class="card-body">
-          <p class="card-text">Legenda da Imagem 5</p>
-          <a href="/post/comentarios" class="btn btn-primary">Ver Comentários</a>
-        </div>
-      </div>
-    </div>
-
-
-
   </div>
-
 </div>
 
 </body>

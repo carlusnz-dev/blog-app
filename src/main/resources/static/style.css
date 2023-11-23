@@ -133,6 +133,7 @@ h2{
 }
 
 .post{
-  height: 600px;
+  aspect-ratio: 1/1;
+  height: 500px;
   width: 100%;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -31,30 +31,26 @@
     </div>
     <div  class="d-flex link-navbar">
       <a href="/novo/post" class="btn btn-primary me-3">Criar Post</a>
-      <a href="/meuspots" class="btn btn-primary me-3">Meus Posts</a>
+      <a href="/meus/posts" class="btn btn-primary me-3">Meus Posts</a>
     </div>
   </div>
 </nav>
 
 
 <div class="container mt-5 post-container">
-  <div class="row">
+  <div class="row" th:each="post : ${post}">
     <div class="col-md-8 offset-md-2">
-
-
       <div class="d-flex justify-content-start align-items-center mb-3">
-        <img src="https://s2-ge.glbimg.com/cJCJWcvQLNV_AOyJw9q7PnSS8SE=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/C/r/cu9fbITjaRxUADWaWKEA/2022-02-15t195150z-1479970139-up1ei2f1j6ctq-rtrmadp-3-soccer-england-mun-brh-report.jpg"
+        <img th:src="${post.usuario.imagemPerfil}"
              class="mr-3 rounded-circle avatar" alt="Avatar">
-        <h3 class="mb-4 ml-3">Nickname - CR7</h3>
+        <h3 class="mb-4 ml-3" th:text="${post.usuario.nickname}"></h3>
       </div>
 
-      <h2 class="mb-4">Título do Post de Blog</h2>
-      <p class="text-muted">Publicado em 23 de Agosto de 2023</p>
-      <img src="https://qph.cf2.quoracdn.net/main-qimg-a2860432a6423a9b60b00e3ee9f1ae0b-lq" alt="Imagem do CR7"
+      <h2 class="mb-4" th:text="${post.titulo}"></h2>
+      <p class="text-muted" th:text="${post.data}"></p>
+      <img th:src="${post.imagemUrl}" alt="Imagem do CR7"
            class="img-fluid mb-4 post">
-      <p>Conteúdo ... Mussum Ipsum, cacilds vidis litro abertis.
-        Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo.
-        .</p>
+      <p th:text="${post.conteudo}"></p>
     </div>
   </div>
 
@@ -70,18 +66,6 @@
         </div>
         <div class="media-body">
           <p>Comentário 1...</p>
-        </div>
-      </div>
-
-
-      <div class="media mt-4">
-        <div class="d-flex justify-content-start align-items-center">
-          <img src="https://img.a.transfermarkt.technology/portrait/big/5354-1683633269.jpg?lm=1"
-               class="mr-3 rounded-circle avatar" alt="Avatar">
-          <h5 class="mt-0">Juninho</h5>
-        </div>
-        <div class="media-body">
-          <p>Comentário 2...</p>
         </div>
       </div>
 
