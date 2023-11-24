@@ -3,13 +3,13 @@ package br.com.ivan.blog.model
 import jakarta.persistence.*
 
 @Entity
-class Comentario (
+data class Comentario (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Long? = null,
-        val texto: String = "",
+        var texto: String = "",
 
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "usuario_id")
-        val usuario: Usuario? = null,
+        var usuario: Usuario? = null
 )
